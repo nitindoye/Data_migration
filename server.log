@@ -1,0 +1,8 @@
+INFO:15:Dec:24 13:28:24:root:successfully connect to MYSQL database
+INFO:15:Dec:24 13:28:26:root:successfully connect to SQL Server database
+INFO:15:Dec:24 13:28:26:root:read data from MYSQL database
+INFO:15:Dec:24 13:28:56:root:load data into SQL SERVER database
+INFO:15:Dec:24 13:28:56:root:close MYSQL connection
+INFO:15:Dec:24 13:28:56:root:close SQL SERVER connection
+INFO:15:Dec:24 13:28:56:root:format data migration success email body
+INFO:15:Dec:24 13:29:01:root:Email sent successfully.
