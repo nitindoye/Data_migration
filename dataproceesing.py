@@ -18,6 +18,7 @@ logging.basicConfig(filename='data_migration.log',level=logging.INFO, filemode='
 def mysql_db_conn():
     try:
         cred = get_mysql_config_db()
+        logging.info('getting mysql credential from config file')
         mysql_engine = sal.create_engine(f"mysql+pymysql://{cred['username']}:{cred['password']}@{cred['host']}:{cred['port']}/{cred['database']}")
         mysql_conn = mysql_engine.connect()
         logging.info('sucessfully connect to the mysql_db')
@@ -29,6 +30,7 @@ def mysql_db_conn():
 def sql_server_db_conn():
     try:
         sql_cred = get_sql_server_config_db()
+        logging.info('getting sql server credential config ')
         sql_server_engine = sal.create_engine(f"mssql+pyodbc://{sql_cred['host']}/{sql_cred['database']}?driver={sql_cred['driver'].replace(' ', '+')}")
         sql_server_conn= sql_server_engine.connect()
         logging.info('sucessfully connect to the sql_server_db')
@@ -61,11 +63,10 @@ def data_migration():
         logging.info('failed to load data into sql server db')
         return False
     
-
-    
-    
+   
 def send_email(status):
     gmail_cred = get_gmail_config()
+    logging.info('getting gmail credential from config')
     sender_email = "nitindoye470@gmail.com"
     receiver_email = "nitindoye@outlook.com"
     password = f"{gmail_cred['apppass']}"
